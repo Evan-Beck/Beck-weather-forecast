@@ -3,6 +3,17 @@ function kelvinToFahrenheit(kelvin) {
     return (kelvin - 273.15) * 9/5 + 32;
 }
 
+// Function to save search history to local storage.
+function saveSearchHistory(searchHistory) {
+    localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+}
+
+// Function to retrieve search history from local storage.
+function getSearchHistory() {
+    const savedSearchHistory = localStorage.getItem('searchHistory');
+    return JSON.parse(savedSearchHistory) || [];
+}
+
 // Function to fetch and display the weather data.
 function fetchWeatherData(cityName) {
     const apiKey = '8cbc36a25efeb4b9e5921e0a757cfbf9';
@@ -14,6 +25,18 @@ function fetchWeatherData(cityName) {
             // Updates the forecast section with the retrieved data.
             updateForecast(data);
             document.getElementById('cityForecastHeading').textContent = `5-Day Forecast for ${cityName}`;
+         
+            // Get existing search history from local storage.
+         const searchHistory = getSearchHistory();
+
+         // Adds the current city to the search history.
+         searchHistory.push(cityName);
+
+         // Saves the updated search history to local storage.
+         saveSearchHistory(searchHistory);
+
+         // Display the updated search history on the page.
+         displaySearchHistory(searchHistory);
         })
         .catch(error => {
             console.error('Error fetching forecast:', error);
@@ -51,6 +74,25 @@ function updateForecast(data) {
     }
 }
 
+// Function to display search history on the page.
+function displaySearchHistory(searchHistory) {
+    const searchHistoryElement = document.getElementById('searchHistory');
+
+    // Clears previous search history.
+    searchHistoryElement.innerHTML = '';
+
+    // Loops through the search history and display each item.
+    searchHistory.forEach(city => {
+        const historyItem = document.createElement('div');
+        historyItem.classList.add('search-history-item');
+        historyItem.textContent = city;
+        historyItem.addEventListener('click', function() {
+            fetchWeatherData(city);
+        });
+        searchHistoryElement.appendChild(historyItem);
+    });
+}
+
 // This function generates city buttons for populated states, along with a const to grab cityButtons element in HTML so it is appended.
 function generateCityButtons () {
     const usCities = [
@@ -71,7 +113,12 @@ function generateCityButtons () {
 console.log('City buttons generated.');
 }
 
+// Calls the function to generate city buttons on page load.
 generateCityButtons();
+
+// Gets and displays the search history when the page loads.
+const searchHistory = getSearchHistory();
+displaySearchHistory(searchHistory);
 
 document.getElementById('cityForm').addEventListener('submit', function (event) {
     event.preventDefault();
