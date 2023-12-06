@@ -1,26 +1,59 @@
-/* Global Styles */
+/* Global Styles. */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
+    color: #333;
+    background-color: #f5f5f5;
 }
 
-form {
+#pageHeader {
+    color: white;
+    background-color: #330066;
+    text-align: center;
+    padding: 10px;
+}
+
+#searchSection {
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    align-items: flex-start;
 }
 
-label {
+#searchHeading {
+    font-size: 24px;
     font-weight: bold;
-    margin-bottom: 5px;
-}
-
-#cityInput {
+    color: black;
     margin-bottom: 10px;
 }
 
+#cityForm {
+    display: flex;
+    flex-direction: column;
+}
+
+hr {
+    margin: 20px 0;
+    border: none;
+    border-top: 2px solid #ccc;
+}
+
+#cityButtons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.city-button {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
 button {
-    background-color: #66a3ff; /* Light blue background */
+    background-color: #66a3ff;
+    /* Light blue background */
     color: white;
     padding: 10px;
     border: none;
@@ -28,33 +61,55 @@ button {
 }
 
 button:hover {
-    background-color: #3385ff; /* Darker blue on hover */
+    background-color: #3385ff;
+    /* Light blue background hover. */
 }
 
-#currentWeather, #forecast, #searchHistory {
-    margin-bottom: 20px;
-}
-
-/* Forecast styles. */
-#forecast {
+#forecastSection {
+    margin-top: 20px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
 }
 
+#forecastHeading {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#forecastBoxes {
+    background-color: white;
+    /* White background color for forecast boxes so they don't appear grey. */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Adjusted the height so the weather icon and <p> elements in JS could display vertically. */
 .forecast-item {
     border: 1px solid #ccc;
-    padding: 10px;
-    margin: 5px;
+    padding: 30px;
+    margin: 25px;
     text-align: center;
-    width: 18%; /* Adjust the width as needed */
+    height: 365px;
+    background-color: #333;
+    color: white;
+    width: 18%;
+    box-sizing: border-box;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden 
 }
 
-.date {
-    font-weight: bold;
-}
-
-.temperature {
-    margin-top: 5px;
+.forecast-item img {
+    margin-top: 10px;
+    width: 50px; 
+    height: 50px; 
 }
 
 /* Search history styles. */

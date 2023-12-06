@@ -1,30 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Weather Dashboard</title>
 </head>
+
 <body>
- <h2 id="searchHeading">Search for a city</h2>
 
-    <form id="cityForm">
-        <label for="cityInput">Enter City:</label>
-        <input type="text" id="cityInput" placeholder="City name" required>
-        <button type="submit">Search</button>
-    </form>
+    <h1 id="pageHeader">Weather Dashboard</h1>
 
-        <!-- Previous Cities Display -->
-    <div id="searchHistory"></div>
+    <!-- Search Section above the enter city. -->
+    <div id="searchSection">
+        <h2 id="searchHeading">Search for a city</h2>
 
-        <!-- Current Weather Display -->
+        <!-- City Input Form with search button. -->
+        <form id="cityForm">
+            <label for="cityInput">Enter City:</label>
+            <input type="text" id="cityInput" placeholder="City name" required>
+            <button type="submit">Search</button>
+        </form>
+
+        <!-- Divider. -->
+        <hr />
+
+        <!-- Buttons for populated cities in US. -->
+        <div id="cityButtons"></div>
+
+    </div>
+
+    <!-- 5-day forecast section. -->
+    <!-- <div id="forecastSection"> -->
+        <div id="forecastHeading">
+            <h2>5-Day Forecast</h2>
+            <h3 id="cityForecastHeading"></h3>
+        </div>
+
+        <!-- 5-Day Forecast Boxes. -->
+        <div id="forecastBoxes"></div>
+
+    </div>
+
+    <!-- Current Weather Display. -->
     <div id="currentWeather"></div>
-
-        <!-- 5-Day Forecast Display -->
-    <div id="forecast"></div>
-
 
     <script src="script.js"></script>
 </body>
+
 </html>
