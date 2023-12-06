@@ -7,21 +7,23 @@
     <title>Weather Dashboard</title>
 </head>
 <body>
-    <!-- City Input Form -->
+ <h2 id="searchHeading">Search for a city</h2>
+
     <form id="cityForm">
         <label for="cityInput">Enter City:</label>
         <input type="text" id="cityInput" placeholder="City name" required>
         <button type="submit">Search</button>
     </form>
 
-    <!-- Current Weather Display -->
+        <!-- Previous Cities Display -->
+    <div id="searchHistory"></div>
+
+        <!-- Current Weather Display -->
     <div id="currentWeather"></div>
 
-    <!-- 5-Day Forecast Display -->
+        <!-- 5-Day Forecast Display -->
     <div id="forecast"></div>
 
-    <!-- Search History Display -->
-    <div id="searchHistory"></div>
 
     <script src="script.js"></script>
 </body>

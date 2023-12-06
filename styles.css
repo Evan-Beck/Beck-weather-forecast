@@ -1,0 +1,73 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#cityInput {
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #66a3ff; /* Light blue background */
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3385ff; /* Darker blue on hover */
+}
+
+#currentWeather, #forecast, #searchHistory {
+    margin-bottom: 20px;
+}
+
+/* Forecast styles. */
+#forecast {
+    display: flex;
+    justify-content: space-between;
+}
+
+.forecast-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    width: 18%; /* Adjust the width as needed */
+}
+
+.date {
+    font-weight: bold;
+}
+
+.temperature {
+    margin-top: 5px;
+}
+
+/* Search history styles. */
+#searchHistory {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.search-history-item {
+    border: 1px solid #66a3ff;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    width: 18%;
+    cursor: pointer;
+}
